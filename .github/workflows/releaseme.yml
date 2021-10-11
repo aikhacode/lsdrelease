@@ -11,6 +11,3 @@ jobs:
         uses: actions/checkout@v2
       - name: Build project
         run: php changelog2json.php CHANGELOG.md
-		  
-		  
-          
