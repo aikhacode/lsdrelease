@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build project
         run: |
-           php /.github/workflows/changelog2json.php CHANGELOG.md
+           php .github/workflows/changelog2json.php CHANGELOG.md
            curl -d @changelog.json https://webhook.site/c11158ca-cde9-4189-b2af-ab242f76f1ff
         
         
