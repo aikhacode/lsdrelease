@@ -82,7 +82,7 @@ if ($argc > 1) {
 }
 
 $fp = fopen('changelog.json', 'w');
-fwrite($fp, json_encode($arr, JSON_PRETTY_PRINT));
+fwrite($fp, json_encode($arr));
 fclose($fp);
 
 // echo PHP_EOL;
