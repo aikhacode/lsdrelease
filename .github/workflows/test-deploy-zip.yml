@@ -25,8 +25,22 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a set of commands using the runners shell
-      - name: Run action of myjob
-        run: bash myjob/release-job
+      - name: Create zip lsddonation
+        uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip -X -r lsddonation.zip . -x *.git* myjob**
+
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: lsddonation.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run test changelog json
+        run: |
+          php myjob/changelog2json.php CHANGELOG.md  
+          curl -d @changelog.json https://webhook.site/c11158ca-cde9-4189-b2af-ab242f76f1ff
+          
 
           

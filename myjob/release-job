@@ -1,7 +1,20 @@
 #!/usr/bin/bash
 
-php myjob/changelog2json.php CHANGELOG.md  
-curl -d @changelog.json https://webhook.site/c11158ca-cde9-4189-b2af-ab242f76f1ff
+if [ ! -d "build/lsddonation" ]
+then
+  mkdir build/lsddonation
+else
+  rm -rf build/lsddonation
+  mkdir build/lsddonation
+fi
+
+cp -r dummy build/lsddonation/dummy 
+
+cd build
+
+zip -r lsddonation.zip lsddonation/*
+
+
 
 
 
