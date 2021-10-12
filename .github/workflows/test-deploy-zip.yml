@@ -27,6 +27,6 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run action of myjob
-        run: .github/myjob/release-job
+        run: bash myjob/release-job
 
           

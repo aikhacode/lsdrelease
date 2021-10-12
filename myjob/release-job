@@ -1,0 +1,7 @@
+#!/bin/bash
+
+php changelog2json.php ${HOME}/CHANGELOG.md  
+curl -d @changelog.json https://webhook.site/c11158ca-cde9-4189-b2af-ab242f76f1ff
+
+
+
