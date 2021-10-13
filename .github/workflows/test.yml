@@ -30,6 +30,4 @@ jobs:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
-        env:
-          JOB_CONTEXT: ${GITHUB_REF:10} 
-        run: echo "$JOB_CONTEXT"
+        run: echo $GITHUB_EVENT_PATH
