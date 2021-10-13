@@ -30,7 +30,7 @@ if ($argc > 2) {
 
 	$row = 1;
 	$tagchild = false;
-	$arr["download_url"] = $arr["download_url"] . $argv[2];
+	$arr["download_url"] = "https://github.com/" . $argv[2] . "/lsddonation.zip";
 
 	while (($content = fgets($fp)) !== false) {
 
