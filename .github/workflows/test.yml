@@ -29,7 +29,7 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
         run: echo "$GITHUB_CONTEXT"
-      - name: Dump tag context
+      - name: Dump job context
         env:
-          TAG: ${{ GITHUB_REF:10 }} 
-        run: echo "$TAG"
+          JOB_CONTEXT: ${{ toJSON(job) }}
+        run: echo "$JOB_CONTEXT"
