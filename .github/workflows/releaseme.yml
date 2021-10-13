@@ -21,6 +21,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Run test changelog json
         run: |
-          php myjob/changelog2json.php CHANGELOG.md ${{ github.repository }}/${{ github.ref:10 }} 
+          php myjob/changelog2json.php CHANGELOG.md ${{ github.repository }}/${GITHUB_REF#refs/*/}
           cat changelog.json
           curl -d @changelog.json https://webhook.site/c11158ca-cde9-4189-b2af-ab242f76f1ff
