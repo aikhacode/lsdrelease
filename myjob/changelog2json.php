@@ -3,7 +3,7 @@
 $arr = array(
 	"version" => "", 
 	"slug" => "lsddonation", 
-	"download_url" => "https://github.com/file.zip",
+	"download_url" => "https://github.com/",
 	"agent" => "Github",
 	"changelog" => array(  "version" => "",
 							"link" => "https://lsdplugins.com/dev/release/lsddonation/",
@@ -19,7 +19,7 @@ $arr = array(
 		)
 );
 
-if ($argc > 1) {
+if ($argc > 2) {
 	try {
 		$fp = fopen($argv[1], "r");
 	} catch (Exception $e) {
@@ -30,6 +30,7 @@ if ($argc > 1) {
 
 	$row = 1;
 	$tagchild = false;
+	$arr["download_url"] = $arr["download_url"] . $argv[2];
 
 	while (($content = fgets($fp)) !== false) {
 
@@ -78,7 +79,7 @@ if ($argc > 1) {
 
 	fclose($fp);
 } else {
-	echo 'parameter not enough bro.. ';
+	echo 'parameter not enough bro.. parameter: nama_file_md url_repo_download';
 }
 
 $fp = fopen('changelog.json', 'w');
